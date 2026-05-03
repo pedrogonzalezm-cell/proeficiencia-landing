@@ -83,13 +83,13 @@ export const POST: APIRoute = async ({ request }) => {
         <h3>Acciones inmediatas para ti:</h3>
         <ul style="padding-left:20px;">${winsHtml}</ul>
         ` : ''}
-        <p style="margin-top:24px;">¿Quieres profundizar? Agenda un assessment de 45 min con nuestro equipo:</p>
+        <p style="margin-top:24px;">¿Quieres profundizar? Agenda una llamada gratuita de 15 min con nuestro equipo:</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
           <a href="https://wa.me/56977489336?text=Hola%2C%20acab%C3%A9%20el%20quiz%20y%20quiero%20agendar%20un%20assessment"
              style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;">
             Agendar por WhatsApp
           </a>
-          <a href="https://cal.com/pedro/assessment"
+          <a href="https://cal.com/proeficiencia/15min"
              style="display:inline-block;background:#4f46e5;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;">
             Agendar por Calendario
           </a>

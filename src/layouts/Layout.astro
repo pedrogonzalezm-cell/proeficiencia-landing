@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = 'ProeficiencIA — Diagnóstico IA para PYMEs | Recupera horas y ganancias',
-  description = 'Diagnóstico por departamento. Soluciones de IA a medida para PYMEs con 5-50 empleados. Sin ser experto en tecnología. Assessment desde $250.',
+  description = 'Diagnóstico por departamento. Soluciones de IA a medida para PYMEs con 5-50 empleados. Sin ser experto en tecnología. Evaluación desde $250.',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -20,7 +20,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="keywords" content="IA para PYMEs, automatización, diagnóstico empresarial, assessment IA, inteligencia artificial PYME, Chile" />
+    <meta name="keywords" content="IA para PYMEs, automatización, diagnóstico empresarial, evaluación IA, inteligencia artificial PYME, Chile" />
     <link rel="canonical" href={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CL" />
@@ -45,9 +45,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "itemListElement": [
-          { "@type": "Offer", "name": "Assessment Finanzas", "price": "350-400", "priceCurrency": "USD" },
-          { "@type": "Offer", "name": "Assessment Ventas", "price": "250-300", "priceCurrency": "USD" },
-          { "@type": "Offer", "name": "Assessment Marketing", "price": "250-300", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Evaluación Finanzas", "price": "350-400", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Evaluación Ventas", "price": "250-300", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Evaluación Marketing", "price": "250-300", "priceCurrency": "USD" },
           { "@type": "Offer", "name": "Bundle Integral", "price": "600", "priceCurrency": "USD" },
         ],
       },

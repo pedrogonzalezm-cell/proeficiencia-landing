@@ -86,12 +86,12 @@ export default function Quiz() {
                 Agendar por WhatsApp
               </a>
               <a
-                href="https://calendly.com/proeficiencia/assessment"
+                href="https://cal.com/proeficiencia/15min"
                 target="_blank"
                 rel="noopener"
                 className="bg-surface-dark-elevated text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-surface-dark-soft transition-all"
               >
-                Agendar por Calendly
+                Agendar llamada gratuita
               </a>
             </div>
           </>
@@ -110,12 +110,12 @@ export default function Quiz() {
               ))}
             </ul>
             <a
-              href="https://calendly.com/proeficiencia/assessment"
+              href="https://cal.com/proeficiencia/15min"
               target="_blank"
               rel="noopener"
               className="inline-block bg-primary text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-primary-active transition-all"
             >
-              Agendar assessment
+              Agendar llamada gratuita
             </a>
           </>
         )}
@@ -133,12 +133,12 @@ export default function Quiz() {
               ))}
             </ul>
             <a
-              href="https://calendly.com/proeficiencia/assessment"
+              href="https://cal.com/proeficiencia/15min"
               target="_blank"
               rel="noopener"
               className="inline-block bg-surface-dark-elevated text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-surface-dark-soft transition-all"
             >
-              Agendar assessment
+              Agendar llamada gratuita
             </a>
           </>
         )}
