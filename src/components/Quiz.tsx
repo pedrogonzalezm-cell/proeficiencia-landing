@@ -19,7 +19,6 @@ export default function Quiz() {
     const handlePreselect = (e: Event) => {
       const { question, value } = (e as CustomEvent).detail;
       setAnswers((prev) => ({ ...prev, [question]: value }));
-      setCurrentStep(question);
     };
 
     root.addEventListener('quiz:preselect', handlePreselect as EventListener);
