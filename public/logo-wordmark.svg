@@ -5,8 +5,8 @@
       text { font-family: 'Cormorant Garamond', Georgia, serif; }
     </style>
   </defs>
-  <!-- Proeficienci (ink) -->
-  <text x="0" y="60" font-size="64" font-weight="600" letter-spacing="-0.5" fill="#1a1918">Proeficienci</text>
-  <!-- IA (amber) -->
-  <text x="376" y="60" font-size="64" font-weight="700" letter-spacing="-0.5" fill="#D4922A">IA</text>
+  <text x="0" y="60" font-size="64" letter-spacing="-0.5">
+    <tspan font-weight="600" fill="#1a1918">Proeficienc</tspan>
+    <tspan font-weight="700" fill="#D4922A">IA</tspan>
+  </text>
 </svg>
