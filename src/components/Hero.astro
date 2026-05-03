@@ -1,0 +1,51 @@
+---
+import Button from './ui/Button.astro';
+import Badge from './ui/Badge.astro';
+import ScrollReveal from './ui/ScrollReveal.astro';
+---
+
+<section class="bg-canvas pt-32 pb-20 md:pt-40 md:pb-28 px-6" style="padding-top: calc(4rem + 64px);">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="max-w-2xl">
+      <ScrollReveal>
+        <h1 class="font-display text-display-xl md:text-[64px] font-semibold leading-tight tracking-tight text-ink" style="letter-spacing: -0.02em;">
+          Recupera horas.<br />
+          Recupera ganancias.
+        </h1>
+      </ScrollReveal>
+
+      <ScrollReveal delay="200">
+        <p class="mt-6 text-body-md text-body max-w-lg">
+          Diagnóstico por departamento. Soluciones a medida. Sin ser experto en tecnología.
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal delay="400">
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <button
+            class="bg-primary text-on-primary text-sm font-semibold px-5 py-3 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02]"
+            data-quiz-trigger
+            data-preselect-question="3"
+            data-preselect-value="sales"
+          >
+            Quiero generar +ventas
+          </button>
+          <button
+            class="bg-canvas text-ink border border-hairline text-sm font-semibold px-5 py-3 rounded-md hover:bg-surface-card transition-all hover:scale-[1.02]"
+            data-quiz-trigger
+            data-preselect-question="3"
+            data-preselect-value="costs"
+          >
+            Quiero reducir costos
+          </button>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal delay="600">
+        <div class="mt-6">
+          <Badge variant="pill">Para PYMEs con 5-50 empleados</Badge>
+        </div>
+      </ScrollReveal>
+    </div>
+  </div>
+</section>

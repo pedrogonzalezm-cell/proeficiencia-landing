@@ -1,0 +1,49 @@
+---
+interface Props {
+  delay?: number;
+  class?: string;
+}
+
+const { delay = 0, class: className = '' } = Astro.props;
+---
+
+<div
+  class={`scroll-reveal ${className}`}
+  data-scroll-reveal
+  data-delay={delay}
+  style={`transition-delay: ${delay}ms;`}
+>
+  <slot />
+</div>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.getAttribute('data-delay') || '0';
+          (entry.target as HTMLElement).style.transitionDelay = `${delay}ms`;
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  document.querySelectorAll('[data-scroll-reveal]').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+  }
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

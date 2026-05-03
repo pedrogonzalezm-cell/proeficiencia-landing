@@ -1,0 +1,22 @@
+---
+interface Props {
+  variant?: 'pill' | 'amber';
+  class?: string;
+}
+
+const {
+  variant = 'pill',
+  class: className = '',
+} = Astro.props;
+
+const variantClasses = {
+  pill: 'bg-surface-card text-ink text-[13px] font-medium px-3 py-1 rounded-full',
+  amber: 'bg-primary text-on-primary text-xs font-semibold tracking-wide px-3 py-1 rounded-full',
+};
+
+const classes = `${variantClasses[variant]} ${className}`;
+---
+
+<span class={classes}>
+  <slot />
+</span>

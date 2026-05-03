@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 80" width="520" height="80">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700');
+      text { font-family: 'Cormorant Garamond', Georgia, serif; }
+    </style>
+  </defs>
+  <!-- Proeficienci (ink) -->
+  <text x="0" y="60" font-size="64" font-weight="600" letter-spacing="-0.5" fill="#1a1918">Proeficienci</text>
+  <!-- IA (amber) -->
+  <text x="376" y="60" font-size="64" font-weight="700" letter-spacing="-0.5" fill="#D4922A">IA</text>
+</svg>

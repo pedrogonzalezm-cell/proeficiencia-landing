@@ -1,0 +1,58 @@
+---
+import ScrollReveal from './ui/ScrollReveal.astro';
+---
+
+<section class="bg-primary py-20 md:py-28 px-6">
+  <div class="max-w-[1200px] mx-auto text-center">
+    <ScrollReveal>
+      <h2 class="font-display text-display-sm font-semibold text-on-primary" style="letter-spacing: -0.01em;">
+        Assessment por departamento
+      </h2>
+    </ScrollReveal>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <ScrollReveal delay="0">
+        <div class="bg-on-primary/10 rounded-lg p-8 border border-on-primary/20">
+          <h3 class="font-body text-title-lg font-semibold text-on-primary">Por área</h3>
+          <p class="mt-4 font-mono text-4xl font-semibold text-on-primary">$250-400</p>
+          <p class="text-sm text-on-primary/70 mt-1">por departamento</p>
+          <ul class="mt-6 space-y-3 text-on-primary/80">
+            <li class="flex items-center gap-2"><span class="text-accent-green">&#10003;</span> 1 diagnóstico</li>
+            <li class="flex items-center gap-2"><span class="text-accent-green">&#10003;</span> 1 reporte personalizado</li>
+            <li class="flex items-center gap-2"><span class="text-accent-green">&#10003;</span> 1 quick win inmediato</li>
+          </ul>
+          <a
+            href="#"
+            class="mt-6 inline-block bg-on-primary text-primary text-sm font-semibold px-6 py-3 rounded-md hover:bg-canvas transition-all hover:scale-[1.02]"
+            data-quiz-trigger
+          >
+            Agendar assessment
+          </a>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal delay="100">
+        <div class="bg-on-primary/10 rounded-lg p-8 border-2 border-on-primary/40 relative">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-on-primary text-primary text-xs font-semibold px-3 py-1 rounded-full">
+            Más popular
+          </span>
+          <h3 class="font-body text-title-lg font-semibold text-on-primary">Bundle integral</h3>
+          <p class="mt-4 font-mono text-4xl font-semibold text-on-primary">$600</p>
+          <p class="text-sm text-on-primary/70 mt-1">3 áreas</p>
+          <ul class="mt-6 space-y-3 text-on-primary/80">
+            <li class="flex items-center gap-2"><span class="text-accent-green">&#10003;</span> Diagnóstico integral</li>
+            <li class="flex items-center gap-2"><span class="text-accent-green">&#10003;</span> 3 reportes personalizados</li>
+            <li class="flex items-center gap-2"><span class="text-accent-green">&#10003;</span> 3 quick wins inmediatos</li>
+          </ul>
+          <a
+            href="#"
+            class="mt-6 inline-block bg-on-primary text-primary text-sm font-semibold px-6 py-3 rounded-md hover:bg-canvas transition-all hover:scale-[1.02]"
+            data-quiz-trigger
+          >
+            Agendar assessment
+          </a>
+        </div>
+      </ScrollReveal>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+---
+const navLinks = [
+  { label: 'Quiz', href: '#quiz', isQuiz: true },
+  { label: 'Assessment', href: '#precios' },
+  { label: 'WhatsApp', href: 'https://wa.me/56XXXXXXXXX?text=Hola%2C%20me%20interesa%20el%20assessment', isExternal: true },
+];
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+  <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-2" aria-label="ProeficiencIA">
+      <img src="/logo-wordmark.svg" alt="ProeficiencIA" class="h-8" />
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'text-sm font-medium text-ink hover:text-primary transition-colors',
+            link.isQuiz && 'cursor-pointer quiz-trigger',
+          ]}
+          {...(link.isExternal ? { target: '_blank', rel: 'noopener' } : {})}
+          {...(link.isQuiz ? { 'data-quiz-trigger': '' } : {})}
+        >
+          {link.label}
+        </a>
+      ))}
+      <button
+        class="bg-primary text-on-primary text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02]"
+        data-quiz-trigger
+      >
+        Agenda assessment
+      </button>
+    </nav>
+
+    <button id="mobile-menu-btn" class="md:hidden text-ink" aria-label="Menú">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-canvas border-t border-hairline">
+    <div class="px-6 py-4 flex flex-col gap-4">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'text-sm font-medium text-ink hover:text-primary py-2',
+            link.isQuiz && 'quiz-trigger',
+          ]}
+          {...(link.isExternal ? { target: '_blank', rel: 'noopener' } : {})}
+          {...(link.isQuiz ? { 'data-quiz-trigger': '' } : {})}
+        >
+          {link.label}
+        </a>
+      ))}
+      <button
+        class="bg-primary text-on-primary text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-primary-active w-full"
+        data-quiz-trigger
+      >
+        Agenda assessment
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      navbar?.classList.add('bg-canvas', 'border-b', 'border-hairline');
+      navbar?.classList.remove('bg-transparent');
+    } else {
+      navbar?.classList.remove('bg-canvas', 'border-b', 'border-hairline');
+      navbar?.classList.add('bg-transparent');
+    }
+  });
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

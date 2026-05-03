@@ -1,0 +1,32 @@
+---
+import ScrollReveal from './ui/ScrollReveal.astro';
+---
+
+<section class="bg-surface-dark py-20 md:py-28 px-6">
+  <div class="max-w-[700px] mx-auto text-center">
+    <ScrollReveal>
+      <h2 class="font-display text-display-sm font-semibold text-on-dark" style="letter-spacing: -0.01em;">
+        ¿Listo para recuperar horas y ganancias?
+      </h2>
+    </ScrollReveal>
+
+    <ScrollReveal delay="200">
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          class="bg-primary text-on-primary text-sm font-semibold px-8 py-3 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02]"
+          data-quiz-trigger
+        >
+          Haz el quiz — 3 min
+        </button>
+        <a
+          href="https://calendly.com/proeficiencia/assessment"
+          target="_blank"
+          rel="noopener"
+          class="bg-surface-dark-elevated text-on-dark text-sm font-semibold px-8 py-3 rounded-md hover:bg-surface-dark-soft transition-all hover:scale-[1.02] inline-flex items-center justify-center"
+        >
+          Agenda assessment 45 min
+        </a>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'ProeficiencIA — Diagnóstico IA para PYMEs | Recupera horas y ganancias',
+  description = 'Diagnóstico por departamento. Soluciones de IA a medida para PYMEs con 5-50 empleados. Sin ser experto en tecnología. Assessment desde $250.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="IA para PYMEs, automatización, diagnóstico empresarial, assessment IA, inteligencia artificial PYME, Chile" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:title" content="ProeficiencIA — Recupera horas. Recupera ganancias." />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ProeficiencIA",
+      "description": "Diagnóstico IA por departamento para PYMEs",
+      "url": "https://proeficiencia.cl",
+      "priceRange": "$250-$600",
+      "areaServed": "Chile",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "itemListElement": [
+          { "@type": "Offer", "name": "Assessment Finanzas", "price": "350-400", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Assessment Ventas", "price": "250-300", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Assessment Marketing", "price": "250-300", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Bundle Integral", "price": "600", "priceCurrency": "USD" },
+        ],
+      },
+    })} />
+  </head>
+  <body class="bg-canvas text-body min-h-screen">
+    <slot />
+  </body>
+</html>

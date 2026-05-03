@@ -1,0 +1,72 @@
+---
+import ScrollReveal from './ui/ScrollReveal.astro';
+import Badge from './ui/Badge.astro';
+
+const services = [
+  {
+    department: 'finanzas',
+    title: 'Finanzas',
+    description: 'Elimina reportes manuales, automatiza cobranza, predice tu flujo de caja',
+    items: ['Reportes automáticos', 'Cobranza inteligente', 'Predicción de flujo'],
+    price: '$350-400',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+  },
+  {
+    department: 'ventas',
+    title: 'Ventas',
+    description: 'Convierte más leads, responde en segundos, cierra más citas',
+    items: ['Speed-to-lead', 'CRM inteligente', 'Citas automáticas'],
+    price: '$250-300',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M9 8h6"/><path d="M9 12h4"/><path d="M9 16h2"/></svg>`,
+  },
+  {
+    department: 'marketing',
+    title: 'Marketing',
+    description: 'Más contenido, más visibilidad, menos tiempo invertido',
+    items: ['Contenido con IA', 'Social automático', 'Visibilidad orgánica'],
+    price: '$250-300',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+  },
+];
+---
+
+<section class="bg-surface-dark py-20 md:py-28 px-6">
+  <div class="max-w-[1200px] mx-auto">
+    <ScrollReveal>
+      <h2 class="font-display text-display-md md:text-display-sm font-semibold text-on-dark text-center" style="letter-spacing: -0.01em;">
+        Soluciones por departamento
+      </h2>
+    </ScrollReveal>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      {services.map((service, i) => (
+        <ScrollReveal delay={i * 100}>
+          <div class="bg-surface-dark-elevated rounded-lg p-8 text-on-dark flex flex-col h-full">
+            <div class="text-on-dark-soft mb-4" set:html={service.icon} />
+            <h3 class="font-display text-title-lg font-semibold text-on-dark">{service.title}</h3>
+            <p class="mt-2 text-body-sm text-on-dark-soft">{service.description}</p>
+            <ul class="mt-4 space-y-2 flex-1">
+              {service.items.map((item) => (
+                <li class="text-body-sm text-on-dark-soft flex items-center gap-2">
+                  <span class="text-accent-green">&#10003;</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div class="mt-4">
+              <Badge variant="amber">{service.price}</Badge>
+            </div>
+            <button
+              class="mt-6 w-full bg-primary text-on-primary text-sm font-semibold px-5 py-3 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02]"
+              data-quiz-trigger
+              data-preselect-question="4"
+              data-preselect-value={service.department}
+            >
+              Assessment {service.title}
+            </button>
+          </div>
+        </ScrollReveal>
+      ))}
+    </div>
+  </div>
+</section>

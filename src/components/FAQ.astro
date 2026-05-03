@@ -1,0 +1,85 @@
+---
+import ScrollReveal from './ui/ScrollReveal.astro';
+
+const faqs = [
+  {
+    question: '¿Necesito saber de tecnología?',
+    answer: 'No. Nosotros implementamos todo. Tú solo describes tus procesos y nosotros nos encargamos de la configuración, herramientas y capacitación.',
+  },
+  {
+    question: '¿En cuánto tiempo veo resultados?',
+    answer: 'Quick wins desde la primera semana después del assessment. ROI medible en 30 días. Los clientes típicos recuperan 8+ horas semanales.',
+  },
+  {
+    question: '¿Para qué tamaño de empresa es esto?',
+    answer: 'PYMEs con 5-50 empleados. Si eres más grande, también podemos ayudarte — pero nuestra especialidad son las PyMEs.',
+  },
+  {
+    question: '¿En qué moneda cobran?',
+    answer: 'USD. Aceptamos transferencia bancaria, MercadoPago y PayPal. El assessment se paga 50% al agendar y 50% al entregar el reporte.',
+  },
+  {
+    question: '¿Qué pasa después del assessment?',
+    answer: 'Recibes un plan de acción personalizado con quick wins y proyección de ROI. Si quieres, te ayudamos a implementarlo con nuestros servicios de automatización.',
+  },
+  {
+    question: '¿No es lo mismo que usar ChatGPT?',
+    answer: 'ChatGPT es una herramienta. Nosotros te damos un diagnóstico profesional, un plan de acción personalizado, y te acompañamos en la implementación. No comparar una calculadora con un contador.',
+  },
+];
+---
+
+<section class="bg-canvas py-20 md:py-28 px-6">
+  <div class="max-w-[700px] mx-auto">
+    <ScrollReveal>
+      <h2 class="font-display text-display-md font-semibold tracking-tight text-ink text-center mb-12" style="letter-spacing: -0.01em;">
+        Preguntas frecuentes
+      </h2>
+    </ScrollReveal>
+
+    <div class="space-y-0">
+      {faqs.map((faq, i) => (
+        <div class="border-b border-hairline">
+          <button
+            class="faq-toggle w-full text-left py-5 flex items-center justify-between gap-4 group"
+            data-faq-index={i}
+          >
+            <span class="font-body text-body-md font-medium text-ink group-hover:text-primary transition-colors">
+              {faq.question}
+            </span>
+            <span class="faq-icon text-muted text-xl transition-transform duration-300 flex-shrink-0">+</span>
+          </button>
+          <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-out">
+            <p class="pb-5 text-body-sm text-muted leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling as HTMLElement;
+      const icon = btn.querySelector('.faq-icon') as HTMLElement;
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+      document.querySelectorAll('.faq-answer').forEach((a) => {
+        a.style.maxHeight = '0px';
+      });
+      document.querySelectorAll('.faq-icon').forEach((i) => {
+        i.textContent = '+';
+        i.style.transform = 'rotate(0deg)';
+      });
+
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.textContent = '−';
+        icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script>

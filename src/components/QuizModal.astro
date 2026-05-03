@@ -1,0 +1,63 @@
+---
+---
+
+<div id="quiz-overlay" class="fixed inset-0 z-50 hidden bg-ink/60" style="transition: opacity 200ms ease-out;">
+  <div class="flex items-center justify-center min-h-screen p-4">
+    <div id="quiz-modal" class="bg-canvas rounded-xl max-w-[560px] w-full max-h-[90vh] overflow-y-auto p-8 relative" style="transform: translateY(16px); opacity: 0; transition: all 200ms ease-out;">
+      <button id="quiz-close" class="absolute top-4 right-4 text-muted hover:text-ink transition-colors" aria-label="Cerrar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div id="quiz-root"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('quiz-overlay');
+  const modal = document.getElementById('quiz-modal');
+  const closeBtn = document.getElementById('quiz-close');
+  const root = document.getElementById('quiz-root');
+
+  function openQuiz(preselect?: { question: number; value: string }) {
+    overlay?.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      modal!.style.transform = 'translateY(0)';
+      modal!.style.opacity = '1';
+    });
+    document.body.style.overflow = 'hidden';
+
+    if (preselect && root) {
+      root.dispatchEvent(new CustomEvent('quiz:preselect', { detail: preselect }));
+    }
+  }
+
+  function closeQuiz() {
+    modal!.style.transform = 'translateY(16px)';
+    modal!.style.opacity = '0';
+    setTimeout(() => {
+      overlay?.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 200);
+  }
+
+  document.querySelectorAll('[data-quiz-trigger]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const el = e.currentTarget as HTMLElement;
+      const question = el.getAttribute('data-preselect-question');
+      const value = el.getAttribute('data-preselect-value');
+      if (question && value) {
+        openQuiz({ question: Number(question), value });
+      } else {
+        openQuiz();
+      }
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeQuiz);
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) closeQuiz();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeQuiz();
+  });
+</script>
