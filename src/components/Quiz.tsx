@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { quizQuestions, calculateScore, departmentQuickWins, departmentNames } from '../../data/quiz';
+import { quizQuestions, calculateScore, departmentQuickWins, departmentNames } from '../data/quiz';
 
 type Answers = Record<number, string>;
 
