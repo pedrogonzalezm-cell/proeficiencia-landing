@@ -1,4 +1,5 @@
 ---
+import Quiz from './Quiz.tsx';
 ---
 
 <div id="quiz-overlay" class="fixed inset-0 z-50 hidden bg-ink/60" style="transition: opacity 200ms ease-out;">
@@ -7,7 +8,9 @@
       <button id="quiz-close" class="absolute top-4 right-4 text-muted hover:text-ink transition-colors" aria-label="Cerrar">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-      <div id="quiz-root"></div>
+      <div id="quiz-root">
+        <Quiz client:load />
+      </div>
     </div>
   </div>
 </div>
@@ -42,6 +45,7 @@
 
   document.querySelectorAll('[data-quiz-trigger]').forEach((btn) => {
     btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const el = e.currentTarget as HTMLElement;
       const question = el.getAttribute('data-preselect-question');
       const value = el.getAttribute('data-preselect-value');
