@@ -58,15 +58,6 @@ export const quizQuestions = [
       { value: "several", label: "Varias herramientas", score: "C" },
     ],
   },
-  {
-    id: 7,
-    question: "Déjanos tus datos para recibir tu diagnóstico personalizado",
-    type: "contact",
-    fields: [
-      { name: "name", label: "Tu nombre", type: "text", required: true },
-      { name: "email", label: "Tu email", type: "email", required: true },
-    ],
-  },
 ] as const;
 
 export type QuizOption = (typeof quizQuestions)[number]["options"][number];

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { quizQuestions, calculateScore, departmentQuickWins, departmentNames } from '../data/quiz';
 
 type Answers = Record<number, string>;
@@ -9,7 +9,6 @@ export default function Quiz() {
   const [result, setResult] = useState<'A' | 'B' | 'C' | null>(null);
   const [contactName, setContactName] = useState('');
   const [contactEmail, setContactEmail] = useState('');
-  const [direction, setDirection] = useState<'forward' | 'back'>('forward');
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -35,7 +34,6 @@ export default function Quiz() {
 
   const handleNext = () => {
     if (currentStep < totalSteps - 1) {
-      setDirection('forward');
       setCurrentStep((s) => s + 1);
     } else {
       const score = calculateScore(answers);
@@ -45,16 +43,14 @@ export default function Quiz() {
 
   const handleBack = () => {
     if (currentStep > 0) {
-      setDirection('back');
       setCurrentStep((s) => s - 1);
     }
   };
 
   const handleSubmit = async () => {
-    setSubmitted(true);
     const data = { ...answers, name: contactName, email: contactEmail, result, timestamp: new Date().toISOString() };
     try {
-      await fetch('https://hook.make.com/YOUR_WEBHOOK_URL', {
+      await fetch('/api/quiz-submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -62,6 +58,7 @@ export default function Quiz() {
     } catch {
       localStorage.setItem('quiz_result', JSON.stringify(data));
     }
+    setSubmitted(true);
   };
 
   const selectedValue = answers[currentQuestion?.id];
@@ -77,11 +74,11 @@ export default function Quiz() {
               Tu perfil indica que puedes recuperar horas al mes
             </h3>
             <p className="text-body text-body mb-6">
-              Con base en tus respuestas, tu empresa {department ? `en {department}` : ''} tiene un alto potencial de automatización.
+              Con base en tus respuestas, tu empresa {department ? `en ${department}` : ''} tiene un alto potencial de automatización.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="https://wa.me/56XXXXXXXXX?text=Hola%2C%20acabo%20de%20hacer%20el%20quiz%20y%20quiero%20agendar%20un%20assessment"
+                href="https://wa.me/56977489336?text=Hola%2C%20acabo%20de%20hacer%20el%20quiz%20y%20quiero%20agendar%20un%20assessment"
                 target="_blank"
                 rel="noopener"
                 className="bg-primary text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-primary-active transition-all"
