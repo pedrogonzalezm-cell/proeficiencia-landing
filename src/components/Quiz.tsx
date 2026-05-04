@@ -85,14 +85,6 @@ export default function Quiz() {
               >
                 Agendar por WhatsApp
               </a>
-              <a
-                href="https://cal.com/proeficiencia/15min"
-                target="_blank"
-                rel="noopener"
-                className="bg-surface-dark-elevated text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-surface-dark-soft transition-all"
-              >
-                Agendar llamada gratuita
-              </a>
             </div>
           </>
         )}
@@ -110,12 +102,12 @@ export default function Quiz() {
               ))}
             </ul>
             <a
-              href="https://cal.com/proeficiencia/15min"
+              href="https://wa.me/56977489336?text=Hola%2C%20me%20interesa%20la%20evaluaci%C3%B3n"
               target="_blank"
               rel="noopener"
               className="inline-block bg-primary text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-primary-active transition-all"
             >
-              Agendar llamada gratuita
+              Envíanos un Mensaje por WhatsApp
             </a>
           </>
         )}
@@ -133,12 +125,12 @@ export default function Quiz() {
               ))}
             </ul>
             <a
-              href="https://cal.com/proeficiencia/15min"
+              href="https://wa.me/56977489336?text=Hola%2C%20me%20interesa%20la%20evaluaci%C3%B3n"
               target="_blank"
               rel="noopener"
               className="inline-block bg-surface-dark-elevated text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-surface-dark-soft transition-all"
             >
-              Agendar llamada gratuita
+              Envíanos un Mensaje por WhatsApp
             </a>
           </>
         )}
