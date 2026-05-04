@@ -3,32 +3,32 @@ import ScrollReveal from './ui/ScrollReveal.astro';
 
 const team = [
   {
-    name: 'Pedro Gonzalez',
+    name: 'Pedro',
     role: 'Fundador · Finanzas',
     department: 'Finanzas',
     bio: 'MBA con 13+ años en FP&A y controlling en multinacionales como Thermo Fisher Scientific y Sandvik. Especialista en automatización de reportes, Power BI y AI aplicada a finanzas. Lidera la transformación financiera de PYMEs con herramientas concretas y medibles.',
     tags: ['FP&A', 'Power BI', 'AI Finanzas'],
     photo: '/team-pedro.jpg',
     initials: 'PG',
-    linkedin: 'https://www.linkedin.com/in/pedrogonzalez-maraboli-8941b32b',
+    linkedin: null,
   },
   {
-    name: 'Juanita Morales',
+    name: 'Juanita',
     role: 'Especialista · Ventas',
     department: 'Ventas',
     bio: '10+ años liderando equipos comerciales en PYMEs y startups chilenas. Experta en CRM, automatización de pipeline y estrategias de conversión. Ha ayudado a más de 30 equipos de ventas a reducir su ciclo de cierre con herramientas de IA.',
     tags: ['CRM', 'Pipeline', 'Lead Scoring'],
-    photo: null,
+    photo: '/team-juanita.jpg',
     initials: 'JM',
     linkedin: null,
   },
   {
-    name: 'Nicolás Vega',
+    name: 'Nicolás',
     role: 'Especialista · Marketing',
     department: 'Marketing',
     bio: 'Especialista en marketing digital y contenido con IA. Experiencia en agencias y empresas de consumo masivo. Enfocado en automatización de canales, creación de contenido escalable y crecimiento orgánico para PYMEs.',
     tags: ['Contenido IA', 'Social Media', 'SEO'],
-    photo: null,
+    photo: '/team-nicolas.jpg',
     initials: 'NV',
     linkedin: null,
   },
@@ -51,8 +51,8 @@ const team = [
 
     <div class="grid md:grid-cols-3 gap-8">
       {team.map((member, i) => (
-        <ScrollReveal delay={i * 100}>
-          <div class="bg-surface-card rounded-xl p-8 flex flex-col items-center text-center border border-hairline hover:border-primary/30 transition-all">
+        <ScrollReveal delay={i * 100} class="h-full">
+          <div class="bg-surface-card rounded-xl p-8 flex flex-col items-center text-center border border-hairline hover:border-primary/30 transition-all h-full">
 
             <!-- Foto o inicial -->
             <div class="w-24 h-24 rounded-full overflow-hidden mb-5 border-2 border-primary/20 flex-shrink-0">
