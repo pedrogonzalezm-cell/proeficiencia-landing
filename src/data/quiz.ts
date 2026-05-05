@@ -40,6 +40,18 @@ export const quizQuestions = [
   },
   {
     id: 5,
+    question: "¿Cómo vendes principalmente?",
+    options: [
+      { value: "presencial", label: "Tienda física / presencial" },
+      { value: "marketplace", label: "Marketplace (Mercado Libre, Falabella, etc.)" },
+      { value: "ecommerce", label: "E-commerce propio (tienda online)" },
+      { value: "servicios", label: "Servicios profesionales (consultoría, diseño, legal, etc.)" },
+      { value: "b2b", label: "B2B — le vendo a otras empresas" },
+      { value: "mixto", label: "Mixto" },
+    ],
+  },
+  {
+    id: 6,
     question: "¿Cuántas horas semanales pierdes en tareas repetitivas?",
     options: [
       { value: "less-5", label: "Menos de 5", score: "C" },
@@ -49,7 +61,7 @@ export const quizQuestions = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     question: "¿Qué herramientas de IA usas actualmente?",
     options: [
       { value: "none", label: "Ninguna", score: "A" },
@@ -59,6 +71,15 @@ export const quizQuestions = [
     ],
   },
 ] as const;
+
+export const sellTypeLabels: Record<string, string> = {
+  presencial: "Tienda física / presencial",
+  marketplace: "Marketplace",
+  ecommerce: "E-commerce propio",
+  servicios: "Servicios profesionales",
+  b2b: "B2B",
+  mixto: "Mixto",
+};
 
 export type QuizOption = (typeof quizQuestions)[number]["options"][number];
 
