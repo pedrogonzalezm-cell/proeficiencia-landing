@@ -145,7 +145,7 @@ export const POST: APIRoute = async ({ request }) => {
                   <table cellpadding="0" cellspacing="0">
                     <tr>
                       <td style="padding-right:12px;">
-                        <a href="https://wa.me/56977489336?text=Hola%2C%20acab%C3%A9%20el%20quiz%20y%20quiero%20agendar%20una%20llamada"
+                        <a href="https://wa.me/56964285737?text=Hola%2C%20acab%C3%A9%20el%20quiz%20y%20quiero%20agendar%20una%20llamada"
                            style="display:inline-block;background-color:#25D366;color:#ffffff;font-size:14px;font-weight:600;padding:12px 20px;border-radius:6px;text-decoration:none;">
                           WhatsApp
                         </a>

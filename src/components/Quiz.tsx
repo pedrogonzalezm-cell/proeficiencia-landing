@@ -78,7 +78,7 @@ export default function Quiz() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="https://wa.me/56977489336?text=Hola%2C%20acabo%20de%20hacer%20el%20quiz%20y%20quiero%20agendar%20un%20assessment"
+                href="https://wa.me/56964285737?text=Hola%2C%20acabo%20de%20hacer%20el%20quiz%20y%20quiero%20agendar%20un%20assessment"
                 target="_blank"
                 rel="noopener"
                 className="bg-primary text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-primary-active transition-all"
@@ -102,7 +102,7 @@ export default function Quiz() {
               ))}
             </ul>
             <a
-              href="https://wa.me/56977489336?text=Hola%2C%20me%20interesa%20la%20evaluaci%C3%B3n"
+              href="https://wa.me/56964285737?text=Hola%2C%20me%20interesa%20la%20evaluaci%C3%B3n"
               target="_blank"
               rel="noopener"
               className="inline-block bg-primary text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-primary-active transition-all"
@@ -125,7 +125,7 @@ export default function Quiz() {
               ))}
             </ul>
             <a
-              href="https://wa.me/56977489336?text=Hola%2C%20me%20interesa%20la%20evaluaci%C3%B3n"
+              href="https://wa.me/56964285737?text=Hola%2C%20me%20interesa%20la%20evaluaci%C3%B3n"
               target="_blank"
               rel="noopener"
               className="inline-block bg-surface-dark-elevated text-white px-6 py-3 rounded-md font-semibold text-sm hover:bg-surface-dark-soft transition-all"
