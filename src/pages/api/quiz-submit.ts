@@ -1,17 +1,30 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import Anthropic from '@anthropic-ai/sdk';
 
 export const prerender = false;
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
+const anthropic = new Anthropic({ apiKey: import.meta.env.ANTHROPIC_API_KEY });
 
 const questionLabels: Record<number, string> = {
   1: 'Rol en la empresa',
   2: 'Número de empleados',
   3: 'Objetivo principal',
   4: 'Departamento con más dolores',
-  5: 'Horas semanales en tareas repetitivas',
-  6: 'Herramientas de IA actuales',
+  5: 'Canal de venta principal',
+  6: 'Horas semanales en tareas repetitivas',
+  7: 'Herramientas de IA actuales',
+};
+
+const answerLabels: Record<number, Record<string, string>> = {
+  1: { owner: 'Dueño/Socio', manager: 'Gerente de área', director: 'Director de operaciones', other: 'Otro' },
+  2: { '1-5': '1-5 empleados', '6-20': '6-20 empleados', '21-50': '21-50 empleados', '50+': '50+ empleados' },
+  3: { sales: 'Generar más ventas', costs: 'Reducir costos y tiempo perdido', both: 'Ambas por igual' },
+  4: { ventas: 'Comercial / Ventas', finanzas: 'Finanzas / Contabilidad', marketing: 'Marketing / Comunicación' },
+  5: { presencial: 'Tienda física', marketplace: 'Marketplace', ecommerce: 'E-commerce propio', servicios: 'Servicios profesionales', b2b: 'B2B', mixto: 'Mixto' },
+  6: { 'less-5': 'Menos de 5 horas', '5-10': '5 a 10 horas', '10-20': '10 a 20 horas', '20+': 'Más de 20 horas' },
+  7: { none: 'Ninguna', chatgpt: 'ChatGPT ocasionalmente', basic: 'Algo de automatización', several: 'Varias herramientas' },
 };
 
 const resultLabels: Record<string, string> = {
@@ -20,7 +33,7 @@ const resultLabels: Record<string, string> = {
   C: 'Base en construcción',
 };
 
-const quickWins: Record<string, string[]> = {
+const fallbackWins: Record<string, string[]> = {
   ventas: [
     'Implementa respuestas automáticas en menos de 5 minutos',
     'Crea un lead scoring básico con tu CRM actual',
@@ -38,6 +51,35 @@ const quickWins: Record<string, string[]> = {
   ],
 };
 
+async function generateWins(answers: Record<string, unknown>, result: string): Promise<string[]> {
+  const lines = Object.entries(answerLabels)
+    .map(([qId, labels]) => {
+      const raw = answers[qId] as string | undefined;
+      const label = raw ? (labels[raw] ?? raw) : '—';
+      return `${questionLabels[Number(qId)]}: ${label}`;
+    })
+    .join('\n');
+
+  const response = await anthropic.messages.create({
+    model: 'claude-haiku-4-5-20251001',
+    max_tokens: 300,
+    messages: [{
+      role: 'user',
+      content: `Eres un consultor de automatización con IA para PYMEs latinoamericanas. Basándote en este diagnóstico, genera exactamente 3 acciones concretas que esta empresa pueda implementar esta semana.
+
+${lines}
+Perfil: ${result} — ${resultLabels[result]}
+
+Responde SOLO con un JSON array de exactamente 3 strings. Máximo 12 palabras por acción. Sin explicaciones. Ejemplo: ["Acción 1", "Acción 2", "Acción 3"]`,
+    }],
+  });
+
+  const text = response.content[0].type === 'text' ? response.content[0].text.trim() : '';
+  const wins = JSON.parse(text);
+  if (!Array.isArray(wins) || wins.length === 0) throw new Error('invalid response');
+  return wins.slice(0, 3);
+}
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
@@ -47,9 +89,19 @@ export const POST: APIRoute = async ({ request }) => {
       .filter(([key]) => !isNaN(Number(key)))
       .map(([qId, value]) => {
         const label = questionLabels[Number(qId)] ?? `Pregunta ${qId}`;
-        return `<tr><td style="padding:6px 12px;color:#6b7280;">${label}</td><td style="padding:6px 12px;font-weight:500;">${value}</td></tr>`;
+        const displayValue = answerLabels[Number(qId)]?.[value as string] ?? (value as string);
+        return `<tr><td style="padding:6px 12px;color:#6b7280;">${label}</td><td style="padding:6px 12px;font-weight:500;">${displayValue}</td></tr>`;
       })
       .join('');
+
+    // Genera acciones con IA, con fallback al método estático
+    let wins: string[] = [];
+    try {
+      wins = await generateWins(answers, result);
+    } catch {
+      const dept = answers[4] as string | undefined;
+      wins = (dept && fallbackWins[dept]) ? fallbackWins[dept] : [];
+    }
 
     // Email para ProeficiencIA — notificación interna con todos los datos del lead
     const notificationHtml = `
@@ -67,10 +119,6 @@ export const POST: APIRoute = async ({ request }) => {
     `;
 
     // Email para el cliente — su plan de acción personalizado
-    const department = answers[4] as string | undefined;
-    const wins = department && quickWins[department] ? quickWins[department] : [];
-    const winsHtml = wins.map(w => `<li style="margin-bottom:8px;">${w}</li>`).join('');
-
     const clientHtml = `
 <!DOCTYPE html>
 <html lang="es">
