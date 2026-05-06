@@ -180,13 +180,13 @@ export const POST: APIRoute = async ({ request }) => {
 
     await Promise.all([
       resend.emails.send({
-        from: 'onboarding@resend.dev',
+        from: 'contacto@proeficiencia.cl',
         to: 'pedro@proeficiencia.cl',
         subject: `Nuevo lead: ${name || 'Usuario'} (Perfil ${result})`,
         html: notificationHtml,
       }),
       email ? resend.emails.send({
-        from: 'onboarding@resend.dev',
+        from: 'contacto@proeficiencia.cl',
         to: email,
         subject: 'Tu diagnóstico de automatización — ProeficiencIA',
         html: clientHtml,
