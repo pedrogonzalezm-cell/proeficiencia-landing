@@ -98,6 +98,11 @@ export const POST: APIRoute = async ({ request }) => {
         <table style="border-collapse:collapse;width:100%;background:#f9fafb;border-radius:8px;">
           <tbody>${answersHtml}</tbody>
         </table>
+        ${wins.length > 0 ? `
+        <h3 style="margin-top:24px;">Acciones recomendadas (generadas por IA)</h3>
+        <ol style="padding-left:20px;color:#111827;">
+          ${wins.map(w => `<li style="margin-bottom:6px;">${w}</li>`).join('')}
+        </ol>` : ''}
       </div>
     `;
 
