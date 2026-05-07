@@ -57,8 +57,8 @@ Responde SOLO con un JSON array de exactamente 3 strings. Máximo 12 palabras po
     }],
   });
 
-  const text = response.content[0].type === 'text' ? response.content[0].text.trim() : '';
-  console.log('haiku response:', text);
+  const raw = response.content[0].type === 'text' ? response.content[0].text.trim() : '';
+  const text = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
   const wins = JSON.parse(text);
   if (!Array.isArray(wins) || wins.length === 0) throw new Error('invalid response');
   return wins.slice(0, 3);
