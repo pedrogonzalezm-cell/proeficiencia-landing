@@ -58,6 +58,7 @@ Responde SOLO con un JSON array de exactamente 3 strings. Máximo 12 palabras po
   });
 
   const text = response.content[0].type === 'text' ? response.content[0].text.trim() : '';
+  console.log('haiku response:', text);
   const wins = JSON.parse(text);
   if (!Array.isArray(wins) || wins.length === 0) throw new Error('invalid response');
   return wins.slice(0, 3);
@@ -170,20 +171,14 @@ export const POST: APIRoute = async ({ request }) => {
             <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5f0e8;border-radius:8px;padding:24px;">
               <tr>
                 <td style="padding:24px;">
-                  <p style="margin:0 0 8px;font-size:16px;font-weight:700;color:#1a1918;">¿Quieres profundizar?</p>
-                  <p style="margin:0 0 20px;font-size:14px;color:#6c6a64;line-height:1.5;">Agenda una llamada gratuita de 15 min. Sin compromiso, sin costo.</p>
+                  <p style="margin:0 0 8px;font-size:16px;font-weight:700;color:#1a1918;">¿Quieres un diagnóstico real de tu negocio?</p>
+                  <p style="margin:0 0 20px;font-size:14px;color:#6c6a64;line-height:1.5;">Agenda una llamada de 45 minutos con nuestro equipo. Revisamos tus procesos en detalle y te entregamos recomendaciones concretas y aplicables — sin vueltas, sin genéricos.<br><br><strong style="color:#1a1918;">Escríbenos por WhatsApp y coordinamos.</strong></p>
                   <table cellpadding="0" cellspacing="0">
                     <tr>
-                      <td style="padding-right:12px;">
+                      <td>
                         <a href="https://wa.me/56964285737?text=Hola%2C%20acab%C3%A9%20el%20quiz%20y%20quiero%20agendar%20una%20llamada"
                            style="display:inline-block;background-color:#25D366;color:#ffffff;font-size:14px;font-weight:600;padding:12px 20px;border-radius:6px;text-decoration:none;">
                           WhatsApp
-                        </a>
-                      </td>
-                      <td>
-                        <a href="https://cal.com/proeficiencia/15min"
-                           style="display:inline-block;background-color:#D4922A;color:#ffffff;font-size:14px;font-weight:600;padding:12px 20px;border-radius:6px;text-decoration:none;">
-                          Agenda aquí
                         </a>
                       </td>
                     </tr>
