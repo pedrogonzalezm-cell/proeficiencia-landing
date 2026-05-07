@@ -33,23 +33,6 @@ const resultLabels: Record<string, string> = {
   C: 'Base en construcción',
 };
 
-const fallbackWins: Record<string, string[]> = {
-  ventas: [
-    'Implementa respuestas automáticas en menos de 5 minutos',
-    'Crea un lead scoring básico con tu CRM actual',
-    'Configura plantillas de seguimiento automático',
-  ],
-  finanzas: [
-    'Automatiza tus reportes semanales en 30 minutos',
-    'Configura alertas de flujo de caja',
-    'Reduce errores manuales en conciliación bancaria',
-  ],
-  marketing: [
-    'Crea un calendario de contenido con IA',
-    'Automatiza publicaciones en redes sociales',
-    'Genera borradores de contenido en minutos, no horas',
-  ],
-};
 
 async function generateWins(answers: Record<string, unknown>, result: string): Promise<string[]> {
   const lines = Object.entries(answerLabels)
@@ -99,8 +82,7 @@ export const POST: APIRoute = async ({ request }) => {
     try {
       wins = await generateWins(answers, result);
     } catch {
-      const dept = answers[4] as string | undefined;
-      wins = (dept && fallbackWins[dept]) ? fallbackWins[dept] : [];
+      wins = [];
     }
 
     // Email para ProeficiencIA — notificación interna con todos los datos del lead
