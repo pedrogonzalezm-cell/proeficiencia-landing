@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = 'ProeficiencIA — Diagnóstico IA para PYMEs | Recupera horas y ganancias',
-  description = 'Diagnóstico por departamento. Soluciones de IA a medida para PYMEs con 5-50 empleados. Sin ser experto en tecnología. Evaluación desde $250.',
+  description = 'Diagnóstico de eficiencia con IA para PYMEs. Reporte con Quick Wins priorizados e implementación incluida. Desde $199 USD. Sin ser experto en tecnología.',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -40,15 +40,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "name": "ProeficiencIA",
       "description": "Diagnóstico IA por departamento para PYMEs",
       "url": "https://proeficiencia.cl",
-      "priceRange": "$250-$600",
+      "priceRange": "$199-$497",
       "areaServed": "Chile",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "itemListElement": [
-          { "@type": "Offer", "name": "Evaluación Finanzas", "price": "350-400", "priceCurrency": "USD" },
-          { "@type": "Offer", "name": "Evaluación Ventas", "price": "250-300", "priceCurrency": "USD" },
-          { "@type": "Offer", "name": "Evaluación Marketing", "price": "250-300", "priceCurrency": "USD" },
-          { "@type": "Offer", "name": "Bundle Integral", "price": "600", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Diagnóstico de Eficiencia con IA", "price": "199", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Diagnóstico + Activación (implementación incluida)", "price": "497", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Mantenimiento Mensual", "price": "99", "priceCurrency": "USD" },
         ],
       },
     })} />
