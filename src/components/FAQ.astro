@@ -3,28 +3,44 @@ import ScrollReveal from './ui/ScrollReveal.astro';
 
 const faqs = [
   {
-    question: '¿Necesito saber de tecnología?',
-    answer: 'No. Nosotros implementamos todo. Tú solo describes tus procesos y nosotros nos encargamos de la configuración, herramientas y capacitación.',
+    question: '¿Necesito saber de tecnología para contratar este servicio?',
+    answer: 'No. Nosotros implementamos todo. Tú solo describes tus procesos y nosotros nos encargamos de la configuración, las herramientas y la capacitación. Trabajamos con dueños y gerentes de PYMEs que no tienen equipo técnico interno.',
   },
   {
     question: '¿En cuánto tiempo veo resultados?',
-    answer: 'Quick wins desde la primera semana después de la evaluación. ROI medible en 30 días. Los clientes típicos recuperan 8+ horas semanales.',
+    answer: 'Con el plan Diagnóstico + Activación, las automatizaciones quedan instaladas en 4 días hábiles. Desde el día 5 ya estás ahorrando horas. El ROI típico es de 20x a 45x en el primer mes. Los clientes recuperan en promedio 8 horas semanales.',
   },
   {
     question: '¿Para qué tamaño de empresa es esto?',
-    answer: 'PYMEs con 5-50 empleados. Si eres más grande, también podemos ayudarte — pero nuestra especialidad son las PyMEs.',
+    answer: 'PYMEs con 5 a 50 empleados. Si eres más grande, también podemos ayudarte, pero nuestra especialidad son las PyMEs chilenas con operaciones repetitivas en ventas, finanzas o marketing.',
   },
   {
-    question: '¿En qué moneda cobran?',
-    answer: 'Los valores están en UF. Aceptamos transferencia bancaria y MercadoPago en pesos chilenos. La evaluación se paga al agendar.',
+    question: '¿Cuánto cuesta implementar inteligencia artificial en mi empresa en Chile?',
+    answer: 'El diagnóstico con reporte de Quick Wins cuesta $199 USD. El plan que incluye implementación completa de las 3 soluciones cuesta $497 USD. Las herramientas que instalamos cuestan entre $30 y $80 USD al mes en total. El ROI típico supera los $2.000 USD en ahorros el primer mes.',
+  },
+  {
+    question: '¿Qué procesos empresariales se pueden automatizar con IA?',
+    answer: 'Casi cualquier proceso repetitivo: sincronización de inventario entre plataformas, alertas automáticas de stock o publicaciones pausadas, generación de imágenes de productos, reportes financieros, respuesta a leads, facturación, y publicaciones en redes sociales. En el diagnóstico identificamos exactamente qué procesos de tu empresa tienen mayor potencial y mayor retorno.',
+  },
+  {
+    question: '¿En qué moneda cobran y cómo puedo pagar?',
+    answer: 'Los precios están en USD. Aceptamos transferencia bancaria y pago en pesos chilenos al tipo de cambio vigente. El pago se realiza antes de iniciar el diagnóstico.',
   },
   {
     question: '¿Qué pasa después de la evaluación?',
-    answer: 'Recibes un plan de acción personalizado con quick wins y proyección de ROI. Si quieres, te ayudamos a implementarlo con nuestros servicios de automatización.',
+    answer: 'Recibes un reporte profesional con 3 Quick Wins priorizados por impacto, las herramientas específicas recomendadas, el costo mensual de cada una y el ROI proyectado. Si optas por el plan Diagnóstico + Activación, nuestro equipo las implementa en 4 días y te capacita en el uso.',
+  },
+  {
+    question: '¿Qué diferencia a ProeficiencIA de otras empresas de automatización en Chile?',
+    answer: 'Nos especializamos exclusivamente en PYMEs chilenas de 5 a 50 empleados. No vendemos software genérico ni cursos — hacemos un diagnóstico real de tus procesos específicos y entregamos un plan con herramientas concretas, costos exactos y ROI proyectado. Además implementamos las soluciones nosotros: no te dejamos solo con un manual.',
+  },
+  {
+    question: '¿Cómo sé si mi empresa está lista para usar inteligencia artificial?',
+    answer: 'Si tu empresa tiene procesos que se repiten semana a semana, pierde tiempo en tareas manuales, o depende de que una persona específica haga algo para que el proceso avance — está lista. No necesitas tecnología avanzada ni equipo técnico. Hemos trabajado con empresas de retail, servicios, logística y comercio en Chile.',
   },
   {
     question: '¿No es lo mismo que usar ChatGPT?',
-    answer: 'ChatGPT es una herramienta. Nosotros te damos un diagnóstico profesional, un plan de acción personalizado, y te acompañamos en la implementación. No comparar una calculadora con un contador.',
+    answer: 'ChatGPT es una herramienta. Nosotros te damos un diagnóstico profesional de tus procesos específicos, identificamos exactamente dónde la IA genera mayor ahorro en tu empresa, y nos encargamos de implementar y conectar las herramientas. Es la diferencia entre tener una calculadora y tener un contador.',
   },
 ];
 ---
@@ -60,6 +76,19 @@ const faqs = [
   </div>
 </section>
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer,
+    },
+  })),
+})} />
+
 <script>
   document.querySelectorAll('.faq-toggle').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -68,11 +97,11 @@ const faqs = [
       const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
 
       document.querySelectorAll('.faq-answer').forEach((a) => {
-        a.style.maxHeight = '0px';
+        (a as HTMLElement).style.maxHeight = '0px';
       });
       document.querySelectorAll('.faq-icon').forEach((i) => {
-        i.textContent = '+';
-        i.style.transform = 'rotate(0deg)';
+        (i as HTMLElement).textContent = '+';
+        (i as HTMLElement).style.transform = 'rotate(0deg)';
       });
 
       if (!isOpen) {
