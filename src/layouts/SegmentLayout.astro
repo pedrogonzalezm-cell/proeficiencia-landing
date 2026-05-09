@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="google-site-verification" content="0u9KiiCsuUJtMLVy5bvPAHkzFSqhfeW71X3W6JJo_Xc" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-canvas text-body min-h-screen">
+    <header id="seg-navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+      <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2" aria-label="ProeficiencIA">
+          <img src="/logo.svg" alt="ProeficiencIA" class="h-8" />
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="/#precios" class="hidden md:block text-sm font-medium text-ink hover:text-primary transition-colors">
+            Ver planes
+          </a>
+          <a
+            href="https://wa.me/56964285737?text=Hola%2C%20me%20interesa%20la%20evaluaci%C3%B3n"
+            target="_blank"
+            rel="noopener"
+            class="bg-primary text-on-primary text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02]"
+          >
+            Solicitar evaluación
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-16">
+      <slot />
+    </main>
+
+    <Footer />
+    <WhatsAppButton />
+
+    <script>
+      const navbar = document.getElementById('seg-navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+          navbar?.classList.add('bg-canvas', 'border-b', 'border-hairline');
+          navbar?.classList.remove('bg-transparent');
+        } else {
+          navbar?.classList.remove('bg-canvas', 'border-b', 'border-hairline');
+          navbar?.classList.add('bg-transparent');
+        }
+      });
+    </script>
+  </body>
+</html>

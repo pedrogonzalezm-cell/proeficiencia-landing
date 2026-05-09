@@ -1,0 +1,271 @@
+---
+import SegmentLayout from '../layouts/SegmentLayout.astro';
+import ScrollReveal from '../components/ui/ScrollReveal.astro';
+
+const waUrl = 'https://wa.me/56964285737?text=Hola%2C%20me%20interesa%20la%20evaluaci%C3%B3n%20para%20mi%20tienda%20en%20Mercado%20Libre%20o%20marketplace';
+
+const quickWins = [
+  {
+    title: 'Alerta inmediata cuando se pausa una publicación',
+    problem: 'Mercado Libre pausa publicaciones sin aviso: stock agotado, precio fuera de rango, problemas de calidad. Puedes estar perdiendo ventas por horas o días sin saberlo.',
+    solution: 'Conectamos la API de Mercado Libre con Zapier para monitorear el estado de todas tus publicaciones en tiempo real. Cuando una se pausa, recibes alerta instantánea por WhatsApp con el motivo y el link directo para arreglarlo.',
+    saving: 'Recupera ventas perdidas por publicaciones caídas',
+    tool: 'Zapier + Mercado Libre API',
+  },
+  {
+    title: 'Sincronización automática de inventario ML ↔ Shopify',
+    problem: 'Si vendes en Mercado Libre y Shopify al mismo tiempo, el stock se desincroniza: vendes el mismo producto en dos lugares y luego no puedes cumplir. Arreglar eso manualmente toma horas y genera malas reseñas.',
+    solution: 'Stock Sync mantiene sincronizado el inventario entre Mercado Libre, Shopify y otras plataformas en tiempo real. Cuando vendes en uno, se descuenta en todos los demás automáticamente.',
+    saving: 'Elimina overselling y errores de stock entre plataformas',
+    tool: 'Stock Sync',
+  },
+  {
+    title: 'Imágenes de producto profesionales con IA',
+    problem: 'Las publicaciones con imágenes de fondo blanco y sin sombras tienen hasta 40% más de conversión que fotos tomadas con celular. Contratar fotógrafo para cada producto es caro y lento.',
+    solution: 'Instalamos un flujo con Remove.bg + Canva Pro que procesa tus fotos automáticamente: elimina el fondo, aplica el template de tu marca y genera las imágenes listas para subir a ML y Shopify.',
+    saving: 'Imágenes profesionales en minutos, no días',
+    tool: 'Remove.bg + Canva Pro',
+  },
+];
+
+const faqs = [
+  {
+    question: '¿Funciona para cuentas de Mercado Libre con muchas publicaciones?',
+    answer: 'Sí, y es donde más impacto tiene. Con 50 o más publicaciones activas, la probabilidad de que alguna se pause sin que te enteres es muy alta. La alerta automática funciona para cualquier número de publicaciones — monitorea todas en tiempo real y te avisa solo cuando hay un problema.',
+  },
+  {
+    question: '¿Cómo me avisa cuándo se pausa una publicación en Mercado Libre?',
+    answer: 'La automatización usa la API oficial de Mercado Libre para revisar el estado de tus publicaciones. Cuando detecta un cambio de activa a pausada, te envía mensaje por WhatsApp con el nombre del producto, el motivo de la pausa y el link directo para resolverlo. El tiempo de detección es menor a 5 minutos.',
+  },
+  {
+    question: '¿Puedo sincronizar el inventario entre Mercado Libre y mi tienda Shopify?',
+    answer: 'Sí. Stock Sync es la herramienta más eficiente para esto. Conecta tu inventario de Shopify como fuente principal, y sincroniza las cantidades hacia Mercado Libre (y otras plataformas si las tienes) en tiempo real. Cada venta en cualquier plataforma descuenta el stock en todas las demás.',
+  },
+  {
+    question: '¿La IA puede responder preguntas de compradores en Mercado Libre?',
+    answer: 'Es técnicamente posible con la API de ML + Claude, pero recomendamos esta automatización solo cuando ya tienes volumen alto de preguntas repetidas. Para la mayoría de los vendedores, los tres Quick Wins del plan (alertas, inventario, imágenes) generan más ROI inmediato. Si tienes más de 50 preguntas diarias, lo evaluamos en el diagnóstico.',
+  },
+];
+---
+
+<SegmentLayout
+  title="IA para vendedores en Mercado Libre y marketplace en Chile | ProeficiencIA"
+  description="Automatiza alertas de publicaciones pausadas, inventario y fotos de producto con IA. Diagnóstico para vendedores Mercado Libre y ecommerce en Chile desde $199 USD."
+>
+  <!-- Hero -->
+  <section class="bg-canvas py-20 md:py-28 px-6">
+    <div class="max-w-[780px] mx-auto text-center">
+      <ScrollReveal>
+        <p class="text-primary font-semibold text-sm uppercase tracking-widest mb-4">Para vendedores en Mercado Libre y ecommerce en Chile</p>
+        <h1 class="font-display text-display-md md:text-display-lg font-semibold tracking-tight text-ink leading-tight mb-6" style="letter-spacing: -0.02em;">
+          IA para vendedores en Mercado Libre y marketplace en Chile
+        </h1>
+        <p class="text-body-md text-muted leading-relaxed mb-8 max-w-[620px] mx-auto">
+          Vendedores en Mercado Libre, tiendas Shopify, multi-plataforma. Si vendes online en Chile — la IA puede avisarte cuando cae una publicación, sincronizar tu inventario y generar fotos profesionales de tus productos sin fotógrafo.
+        </p>
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-primary text-on-primary font-semibold px-8 py-4 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02] text-body-sm"
+        >
+          Solicitar diagnóstico gratuito →
+        </a>
+        <p class="text-xs text-muted mt-3">Diagnóstico desde $199 USD · Implementación incluida en plan Pro</p>
+      </ScrollReveal>
+    </div>
+  </section>
+
+  <!-- Pain -->
+  <section class="bg-surface-soft py-16 md:py-20 px-6">
+    <div class="max-w-[700px] mx-auto">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold tracking-tight text-ink mb-6" style="letter-spacing: -0.01em;">
+          ¿Cuántas ventas estás perdiendo sin saberlo en Mercado Libre?
+        </h2>
+        <div class="space-y-4 text-body-sm text-muted leading-relaxed">
+          <p>
+            Los vendedores con más de 30 publicaciones activas en Mercado Libre enfrentan el mismo problema: publicaciones que se pausan sin aviso, inventario desincronizado entre plataformas, y fotos de producto que pierden contra la competencia. Cada una de estas fricciones cuesta ventas todos los días.
+          </p>
+          <p>
+            El problema no es falta de atención — es que monitorear manualmente decenas de publicaciones, mantener el stock sincronizado y producir fotos profesionales para cada nuevo producto es imposible de hacer bien sin automatización.
+          </p>
+          <p>
+            Con las herramientas correctas, estos tres problemas se resuelven una vez y quedan en piloto automático.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal delay={100}>
+        <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+          {[
+            { stat: '+40%', label: 'más conversión con imágenes profesionales' },
+            { stat: '< 5 min', label: 'para detectar una publicación pausada' },
+            { stat: '100%', label: 'de sincronización de stock entre plataformas' },
+          ].map((item) => (
+            <div class="bg-canvas rounded-lg p-4 border border-hairline">
+              <div class="font-display text-display-sm font-semibold text-primary">{item.stat}</div>
+              <div class="text-xs text-muted mt-1">{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+    </div>
+  </section>
+
+  <!-- Quick Wins -->
+  <section class="bg-canvas py-16 md:py-24 px-6">
+    <div class="max-w-[900px] mx-auto">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold tracking-tight text-ink text-center mb-3" style="letter-spacing: -0.01em;">
+          Lo que automatizamos para vendedores en marketplace
+        </h2>
+        <p class="text-body-sm text-muted text-center mb-12 max-w-[520px] mx-auto">
+          Tres soluciones concretas, probadas con vendedores reales en Chile. No teoría — implementación real.
+        </p>
+      </ScrollReveal>
+
+      <div class="space-y-6">
+        {quickWins.map((qw, i) => (
+          <ScrollReveal delay={i * 80}>
+            <div class="bg-surface-soft rounded-xl p-6 md:p-8 border border-hairline">
+              <div class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-full bg-primary/10 text-primary font-semibold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+                  {i + 1}
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-display text-title-lg font-semibold text-ink mb-3">{qw.title}</h3>
+                  <p class="text-body-sm text-muted mb-3"><strong class="text-body-strong">El problema:</strong> {qw.problem}</p>
+                  <p class="text-body-sm text-muted mb-4"><strong class="text-body-strong">La solución:</strong> {qw.solution}</p>
+                  <div class="flex flex-wrap gap-3">
+                    <span class="inline-flex items-center gap-1.5 text-xs font-medium text-accent-teal bg-accent-teal/10 px-3 py-1.5 rounded-full">
+                      ✓ {qw.saving}
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-xs text-muted bg-surface-card px-3 py-1.5 rounded-full">
+                      Herramienta: {qw.tool}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="bg-surface-soft py-16 md:py-20 px-6">
+    <div class="max-w-[700px] mx-auto text-center">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold tracking-tight text-ink mb-10" style="letter-spacing: -0.01em;">
+          ¿Cómo funciona el diagnóstico?
+        </h2>
+      </ScrollReveal>
+      <div class="grid md:grid-cols-3 gap-6 text-left">
+        {[
+          { step: '1', title: 'Diagnóstico (60 min)', desc: 'Sesión por videollamada donde revisamos tus plataformas, publicaciones y procesos. Identificamos exactamente qué automatizaciones generan más ROI para tu operación.' },
+          { step: '2', title: 'Reporte con Quick Wins', desc: 'Recibes un documento con 3 automatizaciones priorizadas, las herramientas específicas, el costo mensual y el ROI proyectado. Incluye análisis de tu cuenta de Mercado Libre.' },
+          { step: '3', title: 'Implementación en 4 días', desc: 'Si optas por el plan Pro, nuestro equipo instala y configura todo. El día 5 tus publicaciones están monitoreadas y tu inventario sincronizado en automático.' },
+        ].map((item) => (
+          <ScrollReveal delay={parseInt(item.step) * 80}>
+            <div class="bg-canvas rounded-xl p-6 border border-hairline">
+              <div class="font-display text-display-sm font-bold text-primary mb-3">{item.step}</div>
+              <h3 class="font-body font-semibold text-ink text-body-md mb-2">{item.title}</h3>
+              <p class="text-body-sm text-muted leading-relaxed">{item.desc}</p>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+      <ScrollReveal delay={300}>
+        <div class="mt-10">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener"
+            class="inline-block bg-primary text-on-primary font-semibold px-8 py-4 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02] text-body-sm"
+          >
+            Solicitar diagnóstico →
+          </a>
+          <p class="text-xs text-muted mt-3">$199 USD · Solo diagnóstico &nbsp;|&nbsp; $497 USD · Con implementación incluida</p>
+        </div>
+      </ScrollReveal>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-canvas py-16 md:py-20 px-6">
+    <div class="max-w-[700px] mx-auto">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold tracking-tight text-ink text-center mb-10" style="letter-spacing: -0.01em;">
+          Preguntas frecuentes sobre IA para vendedores en Mercado Libre
+        </h2>
+      </ScrollReveal>
+      <div class="space-y-0">
+        {faqs.map((faq, i) => (
+          <div class="border-b border-hairline">
+            <button class="faq-toggle w-full text-left py-5 flex items-center justify-between gap-4 group" data-faq-index={i}>
+              <span class="font-body text-body-md font-medium text-ink group-hover:text-primary transition-colors">{faq.question}</span>
+              <span class="faq-icon text-muted text-xl transition-transform duration-300 flex-shrink-0">+</span>
+            </button>
+            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-out">
+              <p class="pb-5 text-body-sm text-muted leading-relaxed">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="bg-surface-dark py-16 md:py-20 px-6">
+    <div class="max-w-[600px] mx-auto text-center">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold text-on-dark mb-4" style="letter-spacing: -0.01em;">
+          Empieza a vender más esta semana
+        </h2>
+        <p class="text-on-dark-soft text-body-sm mb-8 leading-relaxed">
+          El diagnóstico toma 60 minutos. El reporte llega en 48 horas. Si eliges implementación, tus automatizaciones quedan listas en 4 días hábiles.
+        </p>
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-primary text-on-primary font-semibold px-8 py-4 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02] text-body-sm"
+        >
+          Hablar con el equipo por WhatsApp →
+        </a>
+      </ScrollReveal>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+    })),
+  })} />
+
+  <script>
+    document.querySelectorAll('.faq-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling as HTMLElement;
+        const icon = btn.querySelector('.faq-icon') as HTMLElement;
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+        document.querySelectorAll('.faq-answer').forEach((a) => { (a as HTMLElement).style.maxHeight = '0px'; });
+        document.querySelectorAll('.faq-icon').forEach((ic) => {
+          (ic as HTMLElement).textContent = '+';
+          (ic as HTMLElement).style.transform = 'rotate(0deg)';
+        });
+        if (!isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          icon.textContent = '−';
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  </script>
+</SegmentLayout>

@@ -1,0 +1,271 @@
+---
+import SegmentLayout from '../layouts/SegmentLayout.astro';
+import ScrollReveal from '../components/ui/ScrollReveal.astro';
+
+const waUrl = 'https://wa.me/56964285737?text=Hola%2C%20me%20interesa%20la%20evaluaci%C3%B3n%20para%20mi%20negocio%20de%20comercio%20o%20importaci%C3%B3n';
+
+const quickWins = [
+  {
+    title: 'Alerta automática de stock bajo con reorden sugerido',
+    problem: 'Te quedas sin stock de productos clave sin darte cuenta. El reorden llega tarde, pierdes ventas y el proveedor no siempre tiene disponibilidad inmediata.',
+    solution: 'Make conectado a tu Google Sheets o sistema de inventario monitorea el stock en tiempo real. Cuando cae bajo el umbral, te envía alerta por WhatsApp con el reorden sugerido y el proveedor recomendado.',
+    saving: 'Elimina quiebres de stock en productos clave',
+    tool: 'Make + Google Sheets',
+  },
+  {
+    title: 'Actualización masiva de precios a tu tienda online',
+    problem: 'Cuando cambia el tipo de cambio o el proveedor ajusta precios, actualizar manualmente cientos de productos en tu tienda toma horas — y mientras tanto, estás vendiendo a pérdida.',
+    solution: 'Automatizamos la lectura de tu planilla de precios y la actualización masiva en Shopify o WooCommerce con Make. Un cambio en la planilla se refleja en tu tienda en minutos.',
+    saving: '4–8 horas semanales en gestión de precios',
+    tool: 'Make + Shopify / WooCommerce',
+  },
+  {
+    title: 'Sincronización de inventario entre bodega y punto de venta',
+    problem: 'El inventario de bodega no coincide con el sistema de venta. Las diferencias generan errores, pérdidas y tiempo en conciliar manualmente.',
+    solution: 'Stock Sync o Zapier mantiene sincronizado tu inventario entre el sistema de bodega, tu tienda online y tu punto de venta físico — en tiempo real, sin intervención manual.',
+    saving: 'Elimina diferencias de inventario y errores de venta',
+    tool: 'Stock Sync / Zapier',
+  },
+];
+
+const faqs = [
+  {
+    question: '¿Funciona si tengo una tienda física sin ecommerce?',
+    answer: 'Sí. Muchas de las automatizaciones funcionan con Google Sheets como base de datos central — no necesitas tienda online. Por ejemplo, la alerta de stock bajo funciona directo con tu planilla de inventario. Si en el futuro decides abrir una tienda online, la estructura ya está lista para conectarse.',
+  },
+  {
+    question: '¿Puedo sincronizar el inventario entre bodega y punto de venta automáticamente?',
+    answer: 'Sí, es uno de los Quick Wins más solicitados en comercio. Dependiendo de los sistemas que uses, conectamos la sincronización con Stock Sync (si tienes Shopify y Mercado Libre) o con Zapier para sistemas más personalizados. El diagnóstico identifica exactamente qué herramienta aplica para tu caso.',
+  },
+  {
+    question: '¿Cómo se actualiza el precio cuando cambia el tipo de cambio?',
+    answer: 'Configuramos la planilla maestra de precios con la fórmula en pesos que quieras (precio USD × tipo de cambio + margen). Make lee esa planilla y actualiza tu tienda online automáticamente cuando hay un cambio. Puedes definir la frecuencia: diario, al guardar la planilla, o en horario específico.',
+  },
+  {
+    question: '¿Cuánto tarda en configurarse la sincronización de inventario?',
+    answer: 'Con el plan Diagnóstico + Activación, la configuración queda lista en 4 días hábiles. El día 1 es el diagnóstico. Los días 2 y 3 configuramos e integramos los sistemas. El día 4 hacemos pruebas y te capacitamos. Desde el día 5 opera en automático.',
+  },
+];
+---
+
+<SegmentLayout
+  title="Automatización con IA para comercio e importadores en Chile | ProeficiencIA"
+  description="Automatiza inventario, precios y sincronización de stock con IA. Diagnóstico para importadores, distribuidores y comercio en Chile desde $199 USD."
+>
+  <!-- Hero -->
+  <section class="bg-canvas py-20 md:py-28 px-6">
+    <div class="max-w-[780px] mx-auto text-center">
+      <ScrollReveal>
+        <p class="text-primary font-semibold text-sm uppercase tracking-widest mb-4">Para comercio e importadores en Chile</p>
+        <h1 class="font-display text-display-md md:text-display-lg font-semibold tracking-tight text-ink leading-tight mb-6" style="letter-spacing: -0.02em;">
+          Automatización con IA para comercio e importadores en Chile
+        </h1>
+        <p class="text-body-md text-muted leading-relaxed mb-8 max-w-[600px] mx-auto">
+          Importadores, distribuidores, ferreterías, tiendas físicas. Si tu negocio maneja inventario, precios y proveedores — la IA puede eliminar horas de gestión manual y evitar quiebres de stock desde el primer mes.
+        </p>
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-primary text-on-primary font-semibold px-8 py-4 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02] text-body-sm"
+        >
+          Solicitar diagnóstico gratuito →
+        </a>
+        <p class="text-xs text-muted mt-3">Diagnóstico desde $199 USD · Implementación incluida en plan Pro</p>
+      </ScrollReveal>
+    </div>
+  </section>
+
+  <!-- Pain -->
+  <section class="bg-surface-soft py-16 md:py-20 px-6">
+    <div class="max-w-[700px] mx-auto">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold tracking-tight text-ink mb-6" style="letter-spacing: -0.01em;">
+          ¿Cuánto tiempo pierde tu negocio gestionando inventario y precios manualmente?
+        </h2>
+        <div class="space-y-4 text-body-sm text-muted leading-relaxed">
+          <p>
+            Un negocio de comercio típico dedica entre 10 y 20 horas semanales a actualizar inventarios, ajustar precios, hacer pedidos a proveedores y conciliar diferencias entre bodega y venta. Todo manual, todo repetitivo, todo propenso a errores.
+          </p>
+          <p>
+            El costo no son solo las horas — son los quiebres de stock que se pierden sin aviso, los productos que se venden a precio incorrecto cuando cambia el tipo de cambio, y los errores de inventario que aparecen en el momento menos oportuno.
+          </p>
+          <p>
+            Las automatizaciones con IA no reemplazan el criterio del dueño. Eliminan el trabajo manual repetitivo para que puedas enfocarte en comprar bien, vender más y crecer.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal delay={100}>
+        <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+          {[
+            { stat: '10–20 hrs', label: 'semanales en gestión de inventario' },
+            { stat: '4–8 hrs', label: 'en actualización manual de precios' },
+            { stat: '5–15%', label: 'de ventas perdidas por quiebres de stock' },
+          ].map((item) => (
+            <div class="bg-canvas rounded-lg p-4 border border-hairline">
+              <div class="font-display text-display-sm font-semibold text-primary">{item.stat}</div>
+              <div class="text-xs text-muted mt-1">{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+    </div>
+  </section>
+
+  <!-- Quick Wins -->
+  <section class="bg-canvas py-16 md:py-24 px-6">
+    <div class="max-w-[900px] mx-auto">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold tracking-tight text-ink text-center mb-3" style="letter-spacing: -0.01em;">
+          Lo que automatizamos para comercio e importadores
+        </h2>
+        <p class="text-body-sm text-muted text-center mb-12 max-w-[520px] mx-auto">
+          Tres soluciones concretas, con herramientas específicas y ROI proyectado. No teoría — implementación real.
+        </p>
+      </ScrollReveal>
+
+      <div class="space-y-6">
+        {quickWins.map((qw, i) => (
+          <ScrollReveal delay={i * 80}>
+            <div class="bg-surface-soft rounded-xl p-6 md:p-8 border border-hairline">
+              <div class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-full bg-primary/10 text-primary font-semibold text-sm flex items-center justify-center flex-shrink-0 mt-0.5">
+                  {i + 1}
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-display text-title-lg font-semibold text-ink mb-3">{qw.title}</h3>
+                  <p class="text-body-sm text-muted mb-3"><strong class="text-body-strong">El problema:</strong> {qw.problem}</p>
+                  <p class="text-body-sm text-muted mb-4"><strong class="text-body-strong">La solución:</strong> {qw.solution}</p>
+                  <div class="flex flex-wrap gap-3">
+                    <span class="inline-flex items-center gap-1.5 text-xs font-medium text-accent-teal bg-accent-teal/10 px-3 py-1.5 rounded-full">
+                      ✓ {qw.saving}
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-xs text-muted bg-surface-card px-3 py-1.5 rounded-full">
+                      Herramienta: {qw.tool}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="bg-surface-soft py-16 md:py-20 px-6">
+    <div class="max-w-[700px] mx-auto text-center">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold tracking-tight text-ink mb-10" style="letter-spacing: -0.01em;">
+          ¿Cómo funciona el diagnóstico?
+        </h2>
+      </ScrollReveal>
+      <div class="grid md:grid-cols-3 gap-6 text-left">
+        {[
+          { step: '1', title: 'Diagnóstico (60 min)', desc: 'Sesión por videollamada donde revisamos tus procesos actuales, herramientas y tareas repetitivas. Identificamos exactamente dónde la IA te ahorra más.' },
+          { step: '2', title: 'Reporte con Quick Wins', desc: 'Recibes un documento con 3 automatizaciones priorizadas por impacto, las herramientas específicas, el costo mensual y el ROI proyectado para tu negocio.' },
+          { step: '3', title: 'Implementación en 4 días', desc: 'Si optas por el plan Pro, nuestro equipo instala y configura todo. El día 5 ya estás ahorrando horas. Te capacitamos en el uso.' },
+        ].map((item) => (
+          <ScrollReveal delay={parseInt(item.step) * 80}>
+            <div class="bg-canvas rounded-xl p-6 border border-hairline">
+              <div class="font-display text-display-sm font-bold text-primary mb-3">{item.step}</div>
+              <h3 class="font-body font-semibold text-ink text-body-md mb-2">{item.title}</h3>
+              <p class="text-body-sm text-muted leading-relaxed">{item.desc}</p>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+      <ScrollReveal delay={300}>
+        <div class="mt-10">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener"
+            class="inline-block bg-primary text-on-primary font-semibold px-8 py-4 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02] text-body-sm"
+          >
+            Solicitar diagnóstico →
+          </a>
+          <p class="text-xs text-muted mt-3">$199 USD · Solo diagnóstico &nbsp;|&nbsp; $497 USD · Con implementación incluida</p>
+        </div>
+      </ScrollReveal>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-canvas py-16 md:py-20 px-6">
+    <div class="max-w-[700px] mx-auto">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold tracking-tight text-ink text-center mb-10" style="letter-spacing: -0.01em;">
+          Preguntas frecuentes sobre IA para comercio e importadores
+        </h2>
+      </ScrollReveal>
+      <div class="space-y-0">
+        {faqs.map((faq, i) => (
+          <div class="border-b border-hairline">
+            <button class="faq-toggle w-full text-left py-5 flex items-center justify-between gap-4 group" data-faq-index={i}>
+              <span class="font-body text-body-md font-medium text-ink group-hover:text-primary transition-colors">{faq.question}</span>
+              <span class="faq-icon text-muted text-xl transition-transform duration-300 flex-shrink-0">+</span>
+            </button>
+            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-out">
+              <p class="pb-5 text-body-sm text-muted leading-relaxed">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="bg-surface-dark py-16 md:py-20 px-6">
+    <div class="max-w-[600px] mx-auto text-center">
+      <ScrollReveal>
+        <h2 class="font-display text-display-sm font-semibold text-on-dark mb-4" style="letter-spacing: -0.01em;">
+          Empieza a recuperar horas esta semana
+        </h2>
+        <p class="text-on-dark-soft text-body-sm mb-8 leading-relaxed">
+          El diagnóstico toma 60 minutos. El reporte llega en 48 horas. Si eliges implementación, tus automatizaciones quedan listas en 4 días hábiles.
+        </p>
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-primary text-on-primary font-semibold px-8 py-4 rounded-md hover:bg-primary-active transition-all hover:scale-[1.02] text-body-sm"
+        >
+          Hablar con el equipo por WhatsApp →
+        </a>
+      </ScrollReveal>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+    })),
+  })} />
+
+  <script>
+    document.querySelectorAll('.faq-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling as HTMLElement;
+        const icon = btn.querySelector('.faq-icon') as HTMLElement;
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+        document.querySelectorAll('.faq-answer').forEach((a) => { (a as HTMLElement).style.maxHeight = '0px'; });
+        document.querySelectorAll('.faq-icon').forEach((ic) => {
+          (ic as HTMLElement).textContent = '+';
+          (ic as HTMLElement).style.transform = 'rotate(0deg)';
+        });
+        if (!isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          icon.textContent = '−';
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  </script>
+</SegmentLayout>
