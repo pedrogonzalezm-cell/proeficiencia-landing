@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import SegmentLayout from '../../layouts/SegmentLayout.astro';
+import ScrollReveal from '../../components/ui/ScrollReveal.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<SegmentLayout
+  title="Blog — IA y automatización para PYMEs en Chile | ProeficiencIA"
+  description="Guías prácticas sobre automatización con IA para empresas chilenas. Herramientas, casos de uso y tutoriales para PYMEs de 5 a 50 empleados."
+>
+  <section class="bg-canvas py-20 md:py-28 px-6">
+    <div class="max-w-[800px] mx-auto">
+      <ScrollReveal>
+        <p class="text-primary font-semibold text-sm uppercase tracking-widest mb-4 text-center">Blog</p>
+        <h1 class="font-display text-display-md font-semibold tracking-tight text-ink text-center mb-4" style="letter-spacing: -0.02em;">
+          IA y automatización para PYMEs en Chile
+        </h1>
+        <p class="text-body-sm text-muted text-center mb-16 max-w-[520px] mx-auto">
+          Guías prácticas sobre herramientas, casos de uso y automatizaciones reales para empresas chilenas de 5 a 50 empleados.
+        </p>
+      </ScrollReveal>
+
+      <div class="space-y-6">
+        {posts.map((post, i) => (
+          <ScrollReveal delay={i * 60}>
+            <a href={`/blog/${post.slug}`} class="group block bg-surface-soft rounded-xl p-6 md:p-8 border border-hairline hover:border-primary/40 hover:shadow-md transition-all duration-200">
+              <p class="text-xs text-muted mb-2">
+                {post.data.pubDate.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </p>
+              <h2 class="font-display text-display-sm font-semibold text-ink group-hover:text-primary transition-colors mb-2" style="letter-spacing: -0.01em;">
+                {post.data.title}
+              </h2>
+              <p class="text-body-sm text-muted leading-relaxed mb-4">{post.data.description}</p>
+              <span class="text-xs font-semibold text-primary group-hover:underline">Leer artículo →</span>
+            </a>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+</SegmentLayout>
