@@ -1,0 +1,68 @@
+---
+import ScrollReveal from './ui/ScrollReveal.astro';
+
+const segments = [
+  {
+    href: '/ia-para-servicios',
+    label: 'Negocios de servicio',
+    examples: 'Salones, clínicas, hoteles, lavanderías',
+    pain: 'Agenda desordenada y clientes que no vuelven',
+    icon: '🗓️',
+  },
+  {
+    href: '/ia-para-profesionales',
+    label: 'Profesionales independientes',
+    examples: 'Contadores, consultores, abogados, arquitectos',
+    pain: 'Propuestas manuales y cobranza tardía',
+    icon: '💼',
+  },
+  {
+    href: '/ia-para-comercio',
+    label: 'Comercio e importadores',
+    examples: 'Importadores, distribuidores, ferreterías',
+    pain: 'Inventario desactualizado y precios manuales',
+    icon: '📦',
+  },
+  {
+    href: '/ia-para-marketplace',
+    label: 'Vendedores en marketplace',
+    examples: 'Mercado Libre, Shopify, multi-plataforma',
+    pain: 'Publicaciones pausadas e inventario desincronizado',
+    icon: '🛒',
+  },
+];
+---
+
+<section class="bg-surface-soft py-20 md:py-28 px-6">
+  <div class="max-w-[1100px] mx-auto">
+    <ScrollReveal>
+      <h2 class="font-display text-display-md font-semibold tracking-tight text-ink text-center mb-4" style="letter-spacing: -0.01em;">
+        ¿En qué tipo de negocio trabajamos?
+      </h2>
+      <p class="text-body-sm text-muted text-center mb-12 max-w-[520px] mx-auto">
+        Nos especializamos en PYMEs chilenas de 5 a 50 empleados. Cada segmento tiene procesos y dolores distintos — y soluciones distintas.
+      </p>
+    </ScrollReveal>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {segments.map((seg, i) => (
+        <ScrollReveal delay={i * 70}>
+          <a
+            href={seg.href}
+            class="group block bg-canvas rounded-xl p-6 border border-hairline hover:border-primary/40 hover:shadow-md transition-all duration-200"
+          >
+            <div class="text-3xl mb-4">{seg.icon}</div>
+            <h3 class="font-display text-title-lg font-semibold text-ink mb-1 group-hover:text-primary transition-colors">
+              {seg.label}
+            </h3>
+            <p class="text-xs text-muted mb-3">{seg.examples}</p>
+            <p class="text-body-sm text-body-strong leading-snug">{seg.pain}</p>
+            <p class="mt-4 text-xs font-semibold text-primary group-hover:underline">
+              Ver soluciones →
+            </p>
+          </a>
+        </ScrollReveal>
+      ))}
+    </div>
+  </div>
+</section>
